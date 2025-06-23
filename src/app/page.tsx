@@ -24,7 +24,6 @@ export default function Home() {
     <MantineProvider theme={theme}>
       <>
         <Center fw='700' fz='h1' bg='cyan' c='white'>
-          {' '}
           Nick P&apos;s Pokemon Search Interface
         </Center>
         <hr />
