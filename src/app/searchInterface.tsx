@@ -24,7 +24,7 @@ export const SearchInterface = (props: {
   const [fuzzyFilter, setFuzzyFilter] = useState('');
   const [origionalFilter, setOrigionalFilter] = useState(false);
   const [typeFilter, setTypeFilter] = useState(Array<string>(0));
-  const [chunkSize, setChunkSize] = useState(25);
+  const [chunkSize, setChunkSize] = useState<string | number>(25);
   const handleSubmit = () => {
     close();
     setFilters({ fuzzyFilter, origionalFilter, typeFilter, chunkSize });
