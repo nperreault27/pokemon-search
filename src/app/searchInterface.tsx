@@ -29,8 +29,6 @@ export const SearchInterface = (props: {
     close();
     setFilters({ fuzzyFilter, origionalFilter, typeFilter, chunkSize });
   };
-  console.log('1');
-
   const allTypes = [
     'Bug',
     'Dark',

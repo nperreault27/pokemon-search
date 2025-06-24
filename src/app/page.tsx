@@ -19,7 +19,6 @@ export default function Home() {
     typeFilter: [],
     chunkSize: 25,
   });
-  console.log(filters, 2);
   return (
     <MantineProvider theme={theme}>
       <>
