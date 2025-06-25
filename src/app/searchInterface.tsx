@@ -11,16 +11,13 @@ import {
   Switch,
   TextInput,
 } from '@mantine/core';
-import {useContext, useState} from 'react';
+import { use, useState } from 'react';
 import { useDisclosure } from '@mantine/hooks';
-import {FiltersContext} from "@context/FiltersProvider";
+import { FiltersContext } from '@context/FiltersProvider';
 
-export const SearchInterface = (props: {
-  setSort: any;
-  toggleWrap: any;
-}) => {
+export const SearchInterface = (props: { setSort: any; toggleWrap: any }) => {
   const { setSort, toggleWrap } = props;
-  const {setFilters} = useContext(FiltersContext);
+  const { setFilters } = use(FiltersContext);
   const [opened, { open, close }] = useDisclosure(false);
   const [fuzzyFilter, setFuzzyFilter] = useState('');
   const [origionalFilter, setOrigionalFilter] = useState(false);

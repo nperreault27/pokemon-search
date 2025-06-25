@@ -1,17 +1,17 @@
 'use client';
-import {useContext, useEffect, useState} from 'react';
+import { use, useEffect, useState } from 'react';
 import { getAllPokemon } from './loaders';
 import PokemonCard from './pokemonCard';
 import { Flex, Pagination, ScrollArea, Stack } from '@mantine/core';
 import { chunkPokemon, sortPokemon } from './utils';
-import {FiltersContext} from "@context/FiltersProvider";
+import { FiltersContext } from '@context/FiltersProvider';
 
 export const PokemonSearchResults = (props: {
   sort: string;
   toWrap: boolean;
 }) => {
   const { sort, toWrap } = props;
-  const { filters } = useContext(FiltersContext)
+  const { filters } = use(FiltersContext);
   const intersection = (
     pokemon: {
       name: string;

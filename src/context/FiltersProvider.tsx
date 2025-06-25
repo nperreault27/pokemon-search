@@ -1,5 +1,4 @@
-import {useState} from "react";
-import {createContext} from "node:vm";
+import { useState, createContext } from 'react';
 
 type filtersType = {
   fuzzyFilter: string;
@@ -8,12 +7,15 @@ type filtersType = {
   chunkSize: number;
 };
 
-const FiltersContext = createContext<{ filters: filtersType, setFilters: (filtersType) => void }>({
+const FiltersContext = createContext<{
+  filters: filtersType;
+  setFilters: (filtersType) => void;
+}>({
   filters: {},
-  setFilters: () => {}
-})
+  setFilters: () => {},
+});
 
-const FiltersProvider = ({children}) => {
+const FiltersProvider = ({ children }) => {
   const [filters, setFilters] = useState({
     fuzzyFilter: '',
     origionalFilter: false,
@@ -21,9 +23,11 @@ const FiltersProvider = ({children}) => {
     chunkSize: 25,
   });
 
-  return <FiltersContext.Provider value={{filters,setFilters}}>
-    {children}
-  </FiltersContext.Provider>
+  return (
+    <FiltersContext.Provider value={{ filters, setFilters }}>
+      {children}
+    </FiltersContext.Provider>
+  );
 };
 
-export {FiltersContext,FiltersProvider}
+export { FiltersContext, FiltersProvider };
