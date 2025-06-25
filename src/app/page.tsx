@@ -15,11 +15,11 @@ const theme = createTheme({
 export default function Home() {
   const [sort, setSort] = useState('Pokedex Number');
   const [toWrap, setToWrap] = useState(true);
+  
   return (
     <MantineProvider theme={theme}>
       <FiltersProvider>
         <Center fw='700' fz='h1' bg='cyan' c='white'>
-          {' '}
           Nick P&apos;s Pokemon Search Interface
         </Center>
         <hr />
