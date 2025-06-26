@@ -10,10 +10,11 @@ import {
   Stack,
   Text,
 } from '@mantine/core';
-import { getBackground, getColor, getPillColor } from './utils';
-import { Moves } from './moves';
-import { AbilitiesDisplay } from './abilities';
+
 import { Stats } from './stats';
+import { getBackground, getColor, getPillColor } from '@/app/utils';
+import AbilitiesDisplay from '@/app/abilities';
+import Moves from '@/app/moves';
 
 const formatName = (name: string) => {
   const formattedName = name.replace(/-/g, ' ');
@@ -90,7 +91,6 @@ const PokemonCard = (props: { pokemon: any }) => {
           {complete && (
             <>
               <div style={{ padding: '4px' }}>
-                {/* fix this later make prettier and change depending on type of abiity? give it a tooltip for ability description as well */}
                 <AbilitiesDisplay abilities={abilities} />
               </div>
               <div style={{ padding: '4px' }}>

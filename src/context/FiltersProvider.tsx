@@ -11,7 +11,12 @@ const FiltersContext = createContext<{
   filters: filtersType;
   setFilters: (filtersType) => void;
 }>({
-  filters: {},
+  filters: {
+    fuzzyFilter: '',
+    origionalFilter: false,
+    typeFilter: [],
+    chunkSize: 0,
+  },
   setFilters: () => {},
 });
 

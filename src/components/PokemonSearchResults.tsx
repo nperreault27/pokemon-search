@@ -1,10 +1,10 @@
 'use client';
 import { use, useEffect, useState } from 'react';
-import { getAllPokemon } from './loaders';
 import PokemonCard from './pokemonCard';
 import { Flex, Pagination, ScrollArea, Stack } from '@mantine/core';
-import { chunkPokemon, sortPokemon } from './utils';
 import { FiltersContext } from '@context/FiltersProvider';
+import { chunkPokemon, sortPokemon } from '@/app/utils';
+import { getAllPokemon } from '@/app/loaders';
 
 export const PokemonSearchResults = (props: {
   sort: string;

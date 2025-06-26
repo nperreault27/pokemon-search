@@ -2,10 +2,10 @@
 
 import { Center, createTheme, MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
-import { PokemonSearchResults } from './PokemonSearchResults';
 import { useState } from 'react';
-import { SearchInterface } from './searchInterface';
-import { FiltersProvider } from "@context/FiltersProvider";
+import { FiltersProvider } from '@context/FiltersProvider';
+import SearchInterface from '@/components/searchInterface';
+import { PokemonSearchResults } from '@/components/PokemonSearchResults';
 
 const theme = createTheme({
   fontFamily: 'Open Sans, sans-serif',
@@ -15,7 +15,7 @@ const theme = createTheme({
 export default function Home() {
   const [sort, setSort] = useState('Pokedex Number');
   const [toWrap, setToWrap] = useState(true);
-  
+
   return (
     <MantineProvider theme={theme}>
       <FiltersProvider>
@@ -23,10 +23,7 @@ export default function Home() {
           Nick P&apos;s Pokemon Search Interface
         </Center>
         <hr />
-        <SearchInterface
-          setSort={setSort}
-          toggleWrap={setToWrap}
-        />
+        <SearchInterface setSort={setSort} toggleWrap={setToWrap} />
         <hr style={{ padding: '5px' }} />
         <PokemonSearchResults sort={sort} toWrap={toWrap} />
       </FiltersProvider>
