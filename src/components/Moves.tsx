@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Pill, Tooltip, Stack } from '@mantine/core';
-import { getPillColor } from './utils';
+import { getPillColor } from '../app/utils/chunkPokemonUtil';
 
 const MoveCell = (props: any) => {
   const { move } = props;

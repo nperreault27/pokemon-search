@@ -12,9 +12,12 @@ import {
 } from '@mantine/core';
 
 import { Stats } from './stats';
-import { getBackground, getColor, getPillColor } from '@/app/utils';
-import AbilitiesDisplay from '@/app/abilities';
-import Moves from '@/app/moves';
+
+import AbilitiesDisplay from '@/components/abilities';
+import Moves from '@/components/moves';
+import { getBackground } from '@/app/utils/getBackgroundUtil';
+import { getPillColor } from '@/app/utils/getPillColorUtil';
+import { getColor } from '@/app/utils/getColorUtil';
 
 const formatName = (name: string) => {
   const formattedName = name.replace(/-/g, ' ');

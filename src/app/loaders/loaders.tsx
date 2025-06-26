@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unsafe-function-type */
-import { chunkPokemon } from './utils';
+import { chunkPokemon } from '../utils/chunkPokemonUtil';
 
 export const api = async (url: string) => {
   const response = await fetch(url)
