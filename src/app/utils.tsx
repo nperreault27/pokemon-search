@@ -67,7 +67,7 @@ export const sortPokemon = (
   const sortedPokemon = [...unsortedPokemon];
   switch (sortType) {
     case 'Pokedex Number':
-      sortedPokemon.sort((aa, bb) => aa.id - bb.id);
+      sortedPokemon.sort((aa, bb) => aa?.id - bb?.id);
       return sortedPokemon;
     case 'Name':
       sortedPokemon.sort((aa, bb) => {
@@ -78,10 +78,10 @@ export const sortPokemon = (
       return sortedPokemon;
     case 'Type':
       sortedPokemon.sort((aa, bb) => {
-        const aaType1 = aa.types[0].type.name;
-        const bbType1 = bb.types[0].type.name;
-        const aaType2 = aa.types[1] ? aa.types[1].type.name : '';
-        const bbType2 = bb.types[1] ? bb.types[1].type.name : '';
+        const aaType1 = aa?.types[0].type.name;
+        const bbType1 = bb?.types[0].type.name;
+        const aaType2 = aa?.types[1] ? aa?.types[1].type.name : '';
+        const bbType2 = bb?.types[1] ? bb?.types[1].type.name : '';
         return aaType1 < bbType1
           ? -1
           : aaType1 > bbType1
@@ -94,10 +94,10 @@ export const sortPokemon = (
       });
       return sortedPokemon;
     case 'Weight':
-      sortedPokemon.sort((aa, bb) => aa.weight - bb.weight);
+      sortedPokemon.sort((aa, bb) => aa?.weight - bb?.weight);
       return sortedPokemon;
     case 'Height':
-      sortedPokemon.sort((aa, bb) => aa.height - bb.height);
+      sortedPokemon.sort((aa, bb) => aa?.height - bb?.height);
       return sortedPokemon;
     default:
       console.log('brokey');

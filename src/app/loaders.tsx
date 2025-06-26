@@ -15,6 +15,7 @@ const filterFlavorText = (flavorTextEntries: any[]) => {
   )[0].flavor_text;
 };
 
+const moveMap = new Map();
 export const getMoveSet = async (moves: string | any[]) => {
   const moveSet = new Array<{
     name: string;
@@ -25,16 +26,19 @@ export const getMoveSet = async (moves: string | any[]) => {
     return [];
   }
   while (moveSet.length < 4 && moveSet.length < moves.length) {
-    const newMove = await api(
-      moves[Math.floor(Math.random() * moves.length)]?.move.url
-    )
-      .then((data) => {
-        const { name, flavor_text_entries, type } = data;
-        const flavorText = filterFlavorText(flavor_text_entries);
-        return { name, flavorText, type: type.name };
-      })
-      .catch((error) => error);
-
+    const randomIndex = Math.floor(Math.random() * moves.length);
+    const newMove =
+      moveMap.get(moves[randomIndex]?.move.name) ??
+      (await api(moves[randomIndex]?.move.url)
+        .then((data) => {
+          const { name, flavor_text_entries, type } = data;
+          const flavorText = filterFlavorText(flavor_text_entries);
+          return { name, flavorText, type: type.name };
+        })
+        .catch((error) => error));
+    if (moveMap.get(newMove.name) === undefined) {
+      moveMap.set(newMove.name, newMove);
+    }
     if (
       newMove !== undefined &&
       !moveSet.some((move) => newMove.name === move.name)
@@ -44,16 +48,23 @@ export const getMoveSet = async (moves: string | any[]) => {
   }
   return [...moveSet];
 };
-
+const abilityMap = new Map();
 export const getAbilities = async (abilities: any[]) => {
   const abil = await Promise.all(
-    abilities.map(async (ability: { ability: { url: string } }) => {
-      const abil = await api(ability.ability.url);
-      return {
-        name: abil.name,
-        flavorText: filterFlavorText(abil.flavor_text_entries),
-      };
-    })
+    abilities.map(
+      async (ability: { ability: { name: string; url: string } }) => {
+        const abil =
+          abilityMap.get(ability.ability.name) ??
+          (await api(ability.ability.url));
+        if (abilityMap.get(abil.name) === undefined) {
+          abilityMap.set(abil.name, abil);
+        }
+        return {
+          name: abil.name,
+          flavorText: filterFlavorText(abil.flavor_text_entries),
+        };
+      }
+    )
   ).catch((error) => {
     console.log(error);
     return [];
