@@ -4,7 +4,7 @@ import { Center, createTheme, MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
 import { useState } from 'react';
 import { FiltersProvider } from '@context/FiltersProvider';
-import SearchInterface from '@/components/searchInterface';
+import SearchInterface from '@/components/SearchInterface';
 import { PokemonSearchResults } from '@/components/PokemonSearchResults';
 
 const theme = createTheme({

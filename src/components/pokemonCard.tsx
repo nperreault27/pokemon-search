@@ -12,9 +12,8 @@ import {
 } from '@mantine/core';
 
 import { Stats } from './stats';
-
-import AbilitiesDisplay from '@/components/abilities';
-import Moves from '@/components/moves';
+import AbilitiesDisplay from '@/components/Abilities';
+import Moves from '@/components/Moves';
 import { getBackground } from '@/app/utils/getBackgroundUtil';
 import { getPillColor } from '@/app/utils/getPillColorUtil';
 import { getColor } from '@/app/utils/getColorUtil';
