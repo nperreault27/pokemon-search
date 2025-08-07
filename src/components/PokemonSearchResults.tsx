@@ -4,8 +4,8 @@ import { Flex, Pagination, ScrollArea, Stack } from '@mantine/core';
 import { FiltersContext } from '@context/FiltersProvider';
 import { chunkPokemon } from '@/app/utils/chunkPokemonUtil';
 import { getAllPokemon } from '@/app/loaders/loaders';
-import PokemonCard from './PokemonCard';
 import { sortPokemon } from '@/app/utils/sortPokemonUtil';
+import PokemonCard from './PokemonCard';
 
 export const PokemonSearchResults = (props: {
   sort: string;

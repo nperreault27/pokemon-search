@@ -4,8 +4,8 @@ import { Center, createTheme, MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
 import { useState } from 'react';
 import { FiltersProvider } from '@context/FiltersProvider';
-import SearchInterface from '@/components/SearchInterface';
 import { PokemonSearchResults } from '@/components/PokemonSearchResults';
+import SearchInterface from '@/components/SearchInterface';
 
 const theme = createTheme({
   fontFamily: 'Open Sans, sans-serif',
