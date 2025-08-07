@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, createContext } from 'react';
 
 type filtersType = {
@@ -9,7 +10,7 @@ type filtersType = {
 
 const FiltersContext = createContext<{
   filters: filtersType;
-  setFilters: (filtersType) => void;
+  setFilters: (filtersType: any) => void;
 }>({
   filters: {
     fuzzyFilter: '',
@@ -20,7 +21,7 @@ const FiltersContext = createContext<{
   setFilters: () => {},
 });
 
-const FiltersProvider = ({ children }) => {
+const FiltersProvider = ({ children }: any) => {
   const [filters, setFilters] = useState({
     fuzzyFilter: '',
     origionalFilter: false,
